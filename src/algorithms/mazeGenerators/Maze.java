@@ -7,7 +7,7 @@ public class Maze {
     private Position GoalPosition;
     private int [][] maze;
 
-    public Maze(int col, int row) {
+    public Maze(int row, int col) {
 //        this.col = col;
 //        this.row = row;
         this.StartPosition = null;
@@ -31,7 +31,11 @@ public class Maze {
         GoalPosition = new Position(row, column);
     }
 
-    public int [][] getMap(){return this.maze;}
+    public int [][] getMap(){
+        return this.maze;
+    }
+
+
     public void print(){
         String path = " ";
         for (int row=0; row<this.maze.length; row++)
@@ -64,7 +68,7 @@ public class Maze {
 //    public void setRow(int row) {
 //        this.row = row;
 //    }
-    public void SetPosition(int row, int col, int value)
+    public void SetValue(int row, int col, int value)
     {
         this.maze[row][col]=value;
     }
