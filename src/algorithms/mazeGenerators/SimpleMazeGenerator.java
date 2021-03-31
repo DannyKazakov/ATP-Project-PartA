@@ -1,30 +1,28 @@
-//import java.util.*;
+
 package algorithms.mazeGenerators;
-
-
 import java.util.Random;
 
 public class SimpleMazeGenerator extends AMazeGenerator{
     @Override
-    public Maze generate(int row, int col)
-    {
-        Maze simpleMaze = new Maze(row,col);
-        Random randRow = new Random();
-        Random randCol = new Random();
-        simpleMaze.setStartPosition(0,0);
-        simpleMaze.setGoalPosition(randRow.nextInt(row),col-1);
-        Position start = simpleMaze.getStartPosition();
-        Position goal = simpleMaze.getGoalPosition();
-        for(int numOfWalls=0; numOfWalls<(simpleMaze.getMap().length * simpleMaze.getMap()[0].length)/3;numOfWalls++)
-        {
-            int rw = randRow.nextInt(row);
-            int rc = randCol.nextInt(col);
-            if( (start.getRowIndex()!=rw || start.getColumnIndex()!=rc )
-                    && (goal.getRowIndex()!=rw || goal.getColumnIndex()!=rc ) )
+    public Maze generate(int row, int col) {
 
-            { simpleMaze.SetValue(rw,rc,1); }
+        Maze maze=new Maze( row, col);
+        maze.setStartPosition(((int)Math.random() * row), (int) (Math.random() * col));
+        maze.setGoalPosition(((int)Math.random() * row), (int) (Math.random() * col));
+        // create instance of Random class
+        Random rand = new Random();
+        int rand_int1;
+        for (int i=0; i<row; i++) {
+            for (int j = 0; j < col; j++) {
+                rand_int1 = rand.nextInt(9);
+                if (rand_int1 % 2 == 0)
+                    maze.SetPosition(i,j,0);
+                else
+                    maze.SetPosition(i,j,1);
+            }
         }
-        return simpleMaze;
-    }
+         return maze;
 
+
+    }
 }

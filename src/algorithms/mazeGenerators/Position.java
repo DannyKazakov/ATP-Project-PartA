@@ -3,30 +3,28 @@ package algorithms.mazeGenerators;
 import java.util.Objects;
 
 public class Position {
-    private int row;
-    private int column;
+    private int p_row;
+    private int p_col;
 
-    public Position(int row, int column) {
-        this.row = row;
-        this.column = column;
+    public Position(int row, int col) {
+        this.p_row = row;
+        this.p_col = col;
     }
-    public Position (Position other){
-        this.row = other.row;
-        this.column = other.column;
-    }
+   // public Position (Position other){
+   //     this.p_row = other.p_row;
+   //     this.p_col = other.p_col;
+   // }
+
 
     @Override
     public String toString() {
-        return "{" +
-                row +
-                "," + column +
-                '}';
+        return "{" +p_row + ", " + p_col + '}';
     }
     public int getRowIndex() {
-        return row;
+        return p_row;
     }
     public int getColumnIndex() {
-        return column;
+        return p_col;
     }
 
     @Override
